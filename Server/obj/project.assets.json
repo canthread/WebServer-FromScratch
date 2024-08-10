@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/canthread/Projects/WebServer-FromScratch/WebServer/WebServer.csproj",
-      "projectName": "WebServer",
-      "projectPath": "/home/canthread/Projects/WebServer-FromScratch/WebServer/WebServer.csproj",
+      "projectUniqueName": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj",
+      "projectName": "Server",
+      "projectPath": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj",
       "packagesPath": "/home/canthread/.nuget/packages/",
-      "outputPath": "/home/canthread/Projects/WebServer-FromScratch/WebServer/obj/",
+      "outputPath": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/canthread/.nuget/NuGet/NuGet.Config"
