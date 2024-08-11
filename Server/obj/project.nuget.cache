@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hqlzax6gpeVPzyBAoNkUNqwofiX6xRafCIRpwAV67OcE0cJQFJCVxpjorgQbb8n821hpP3dvv2xsqRXif80kAQ==",
+  "dgSpecHash": "QBpDrhYubnM=",
   "success": true,
-  "projectFilePath": "/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/Server.csproj",
+  "projectFilePath": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
