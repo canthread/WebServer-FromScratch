@@ -1,11 +1,15 @@
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Text;
 
 public static class Server{
 
     private static HttpListener listener; 
 
+    // maximum number of connections a that can be made concurently
+    private const int MaxNumOfConnections = 20;
+    private static Semaphore sem = new Semaphore(MaxNumOfConnections, MaxNumOfConnections);
     // public Server(){
     // }
 
@@ -37,6 +41,48 @@ public static class Server{
         return listener;
     } 
 
-    
+    private static void Start(HttpListener listener){
+        listener.Start();
+        Task.Run(() => RunServer(listener)); 
+    }
+
+    private static void RunServer(HttpListener listener){
+        sem.WaitOne();
+        while(true){
+            sem.WaitOne();
+            StartConnectionListener(listener);
+        } 
+    }
+    private static async void StartConnectionListener(HttpListener listener){
+
+        HttpListenerContext context = listener.GetContext();
+        sem.Release();
+
+        string response = "Hello Browser!";
+        byte[] encoded = Encoding.UTF8.GetBytes(response);
+        context.Response.ContentLength64 = encoded.Length;
+        context.Response.OutputStream.Write(encoded, 0, encoded.Length);
+        context.Response.OutputStream.Close();
+    }
+
+
+    /// Starts the web server.
+    /// </summary>
+    public static void Start()
+    {
+        List<IPAddress> localHostIPs = GetIPAddresses();
+        HttpListener listener = InitializeListener(localHostIPs);
+        Start(listener);
+    }
+
+    // todo craete a semaphore of size 20 
+    //private Start method to start the https listener it should run it its own thread HttpListener listern 
+    // private RunServer method that takes listener as argumet and call StartConnectionLisener method takes a semaphore
+    // private StartConnectionListener(listener) async method that gets the context fot the for the listner and releases the semaphore
+    // 
+
+
+
+
 
 }
