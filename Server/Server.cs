@@ -33,11 +33,11 @@ public static class Server{
         HttpListener listener = new HttpListener();
         listener.Prefixes.Add("http://localhost/");
 
-        iPAddresses.ForEach(ip => listener.Prefixes.Add("http://" + ip.ToString + "/"));
+        iPAddresses.ForEach(ip => listener.Prefixes.Add("http://" + ip.ToString() + "/"));
         foreach(var prefix in listener.Prefixes){
             Console.WriteLine("Listening on: " + prefix.ToString());
         } 
-        
+
         return listener;
     } 
 
@@ -58,7 +58,10 @@ public static class Server{
         HttpListenerContext context = listener.GetContext();
         sem.Release();
 
-        string response = "Hello Browser!";
+        //log requets
+        Log(context.Request);
+
+        string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
         byte[] encoded = Encoding.UTF8.GetBytes(response);
         context.Response.ContentLength64 = encoded.Length;
         context.Response.OutputStream.Write(encoded, 0, encoded.Length);
@@ -73,6 +76,14 @@ public static class Server{
         List<IPAddress> localHostIPs = GetIPAddresses();
         HttpListener listener = InitializeListener(localHostIPs);
         Start(listener);
+    }
+
+    /// <summary>
+    /// Log requests.
+    /// </summary>
+    public static void Log(HttpListenerRequest request)
+    {
+        Console.WriteLine(request.RemoteEndPoint + " " + request.HttpMethod + " /" + request.Url.AbsoluteUri.ToString());
     }
 
     // todo craete a semaphore of size 20 
