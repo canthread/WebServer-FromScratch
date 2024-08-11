@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj": {}
+    "/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/Server.csproj": {}
   },
   "projects": {
-    "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj": {
+    "/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj",
+        "projectUniqueName": "/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/Server.csproj",
         "projectName": "Server",
-        "projectPath": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/Server.csproj",
-        "packagesPath": "/home/canthread/.nuget/packages/",
-        "outputPath": "/home/canthread/Projects/Webserver/WebServer-FromScratch/Server/obj/",
+        "projectPath": "/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/Server.csproj",
+        "packagesPath": "/Users/michaeltorkaman/.nuget/packages/",
+        "outputPath": "/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/canthread/.nuget/NuGet/NuGet.Config"
+          "/Users/michaeltorkaman/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/canthread/.dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
