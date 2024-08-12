@@ -1,0 +1,12 @@
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.GeneratedMSBuildEditorConfig.editorconfig
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.AssemblyInfoInputs.cache
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.AssemblyInfo.cs
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.csproj.CoreCompileInputs.cache
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.sourcelink.json
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/bin/Debug/net8.0/Utilities.deps.json
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/bin/Debug/net8.0/Utilities.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/bin/Debug/net8.0/Utilities.pdb
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/refint/Utilities.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/Utilities.pdb
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Utilities/obj/Debug/net8.0/ref/Utilities.dll

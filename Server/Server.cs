@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Utilities.StringHelpers;
 
 public static class Server{
 
@@ -62,10 +63,12 @@ public static class Server{
 
         //log requets
         Log(context.Request);
-
-        string path = request.RawUrl.LeftOf("?");
+        
+        //break down http request for router paramerter come after '?' hence the string parsing on ?
+        string path = request.RawUrl.LeftOf('?');
+        string parms = request.RawUrl.RightOf('?');
         string verb = request.HttpMethod;
-        string parms = request.RawUrl.RightOf("?"); 
+        Dictionary<string, string> = GetKeyValues(parms);
 
         string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
         byte[] encoded = Encoding.UTF8.GetBytes(response);
@@ -97,9 +100,4 @@ public static class Server{
     // private RunServer method that takes listener as argumet and call StartConnectionLisener method takes a semaphore
     // private StartConnectionListener(listener) async method that gets the context fot the for the listner and releases the semaphore
     // 
-
-
-
-
-
 }

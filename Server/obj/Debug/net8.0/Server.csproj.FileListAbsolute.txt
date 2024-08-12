@@ -28,3 +28,7 @@
 /Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/obj/Debug/net8.0/Server.pdb
 /Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/obj/Debug/net8.0/Server.genruntimeconfig.cache
 /Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/obj/Debug/net8.0/ref/Server.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/obj/Debug/net8.0/Server.csproj.AssemblyReference.cache
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/obj/Debug/net8.0/Server.csproj.CopyComplete
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/bin/Debug/net8.0/Utilities.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/Server/bin/Debug/net8.0/Utilities.pdb
