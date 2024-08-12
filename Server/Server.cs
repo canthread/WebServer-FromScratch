@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
@@ -56,10 +55,17 @@ public static class Server{
     private static async void StartConnectionListener(HttpListener listener){
 
         HttpListenerContext context = listener.GetContext();
+
+        HttpListenerRequest request = context.Request;
+
         sem.Release();
 
         //log requets
         Log(context.Request);
+
+        string path = request.RawUrl.LeftOf("?");
+        string verb = request.HttpMethod;
+        string parms = request.RawUrl.RightOf("?"); 
 
         string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
         byte[] encoded = Encoding.UTF8.GetBytes(response);

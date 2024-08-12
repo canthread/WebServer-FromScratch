@@ -1,0 +1,12 @@
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/bin/Debug/net8.0/StringHelpers.deps.json
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/bin/Debug/net8.0/StringHelpers.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/bin/Debug/net8.0/StringHelpers.pdb
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.GeneratedMSBuildEditorConfig.editorconfig
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.AssemblyInfoInputs.cache
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.AssemblyInfo.cs
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.csproj.CoreCompileInputs.cache
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.sourcelink.json
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/refint/StringHelpers.dll
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/StringHelpers.pdb
+/Users/michaeltorkaman/Projects/WebServer-FromScratch/StringHelpers/obj/Debug/net8.0/ref/StringHelpers.dll
