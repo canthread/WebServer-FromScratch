@@ -1,5 +1,7 @@
+using System.Dynamic;
 using System.Net;
 using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Utilities.StringHelpers;
 
@@ -68,7 +70,9 @@ public static class Server{
         string path = request.RawUrl.LeftOf('?');
         string parms = request.RawUrl.RightOf('?');
         string verb = request.HttpMethod;
-        Dictionary<string, string> = GetKeyValues(parms);
+        Dictionary<string, string> kvParams = GetKeyValues(parms, null);
+
+r
 
         string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
         byte[] encoded = Encoding.UTF8.GetBytes(response);
@@ -77,6 +81,24 @@ public static class Server{
         context.Response.OutputStream.Close();
     }
 
+    private static Dictionary<string, string> GetKeyValues(string data, Dictionary<string, string> kv = null)
+     {
+        if(kv == null){
+            kv = new Dictionary<string, string>();
+        }
+        if(!string.IsNullOrEmpty(data)){
+            var pairs = data.Split('&');
+            foreach(var keyValue in pairs){
+                var parts = keyValue.Split('=');
+                if(parts.Count() == 2){
+                    var key = parts[0];
+                    var value = System.Uri.UnescapeDataString(parts[1]);
+                    kv[key] = value;
+                }
+            }
+        }
+        return kv;
+    }
 
     /// Starts the web server.
     /// </summary>
