@@ -1,7 +1,6 @@
 using System.Dynamic;
 using System.Net;
 using System.Net.Sockets;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Utilities.StringHelpers;
 
@@ -72,8 +71,6 @@ public static class Server{
         string verb = request.HttpMethod;
         Dictionary<string, string> kvParams = GetKeyValues(parms, null);
 
-r
-
         string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
         byte[] encoded = Encoding.UTF8.GetBytes(response);
         context.Response.ContentLength64 = encoded.Length;
@@ -116,10 +113,4 @@ r
     {
         Console.WriteLine(request.RemoteEndPoint + " " + request.HttpMethod + " /" + request.Url.AbsoluteUri.ToString());
     }
-
-    // todo craete a semaphore of size 20 
-    //private Start method to start the https listener it should run it its own thread HttpListener listern 
-    // private RunServer method that takes listener as argumet and call StartConnectionLisener method takes a semaphore
-    // private StartConnectionListener(listener) async method that gets the context fot the for the listner and releases the semaphore
-    // 
 }
