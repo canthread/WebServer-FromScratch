@@ -4,7 +4,8 @@ using System.Net.Sockets;
 using System.Text;
 using Utilities.StringHelpers;
 
-public static class Server{
+public static class Server
+{
 
     private static HttpListener listener; 
 
@@ -32,16 +33,30 @@ public static class Server{
     /// <returns></returns>
     public static HttpListener InitializeListener(List<IPAddress> iPAddresses){
         HttpListener listener = new HttpListener();
+        // adds the default localhost to the prefixes
+        //prefix being the URIs a listener is configures to listen to
         listener.Prefixes.Add("http://localhost/");
 
+        // adding all the other assositaed ip addresses this host should listen on 
         iPAddresses.ForEach(ip => listener.Prefixes.Add("http://" + ip.ToString() + "/"));
         foreach(var prefix in listener.Prefixes){
             Console.WriteLine("Listening on: " + prefix.ToString());
         } 
 
         return listener;
-    } 
+    }
 
+    /// Starts the web server.
+    /// </summary>
+    public static void Start()
+    {
+        //TODO add try catch for the InitialieListener to make sure prefixes are added 
+        List<IPAddress> localHostIPs = GetIPAddresses();
+        listener = InitializeListener(localHostIPs);
+        Start(listener);
+    }
+
+    // private method to start and 
     private static void Start(HttpListener listener){
         listener.Start();
         Task.Run(() => RunServer(listener)); 
@@ -54,6 +69,8 @@ public static class Server{
             StartConnectionListener(listener);
         } 
     }
+
+    
     private static async void StartConnectionListener(HttpListener listener){
 
         HttpListenerContext context = listener.GetContext();
@@ -71,6 +88,7 @@ public static class Server{
         string verb = request.HttpMethod;
         Dictionary<string, string> kvParams = GetKeyValues(parms, null);
 
+        
         string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
         byte[] encoded = Encoding.UTF8.GetBytes(response);
         context.Response.ContentLength64 = encoded.Length;
@@ -97,14 +115,6 @@ public static class Server{
         return kv;
     }
 
-    /// Starts the web server.
-    /// </summary>
-    public static void Start()
-    {
-        List<IPAddress> localHostIPs = GetIPAddresses();
-        HttpListener listener = InitializeListener(localHostIPs);
-        Start(listener);
-    }
 
     /// <summary>
     /// Log requests.
@@ -113,4 +123,6 @@ public static class Server{
     {
         Console.WriteLine(request.RemoteEndPoint + " " + request.HttpMethod + " /" + request.Url.AbsoluteUri.ToString());
     }
+
+
 }
