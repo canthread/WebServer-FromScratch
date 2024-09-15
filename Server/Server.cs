@@ -81,6 +81,8 @@ public static class Server
 
         //log requets
         Log(context.Request);
+
+        RequestHandler.HandleRequest(request);
         
         //break down http request for router paramerter come after '?' hence the string parsing on ?
         string path = request.RawUrl.LeftOf('?');

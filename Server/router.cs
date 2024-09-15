@@ -10,6 +10,8 @@ public class Router{
     private void InitializeRouter(){
         WebsitePath = Directory.GetCurrentDirectory();
     }
+
+    Router.HandlerRequest()
 }
 
 
