@@ -7,7 +7,8 @@ using Utilities.StringHelpers;
 public static class Server
 {
 
-    private static HttpListener listener; 
+    private static HttpListener listener;
+
 
     // maximum number of connections a that can be made concurently
     private const int MaxNumOfConnections = 20;
@@ -32,7 +33,7 @@ public static class Server
     /// <param name="iPAddresses"></param>
     /// <returns></returns>
     public static HttpListener InitializeListener(List<IPAddress> iPAddresses){
-        HttpListener listener = new HttpListener();
+        listener = new HttpListener();
         // adds the default localhost to the prefixes
         //prefix being the URIs a listener is configures to listen to
         listener.Prefixes.Add("http://localhost/");
@@ -82,20 +83,20 @@ public static class Server
         //log requets
         Log(context.Request);
 
-        RequestHandler.HandleRequest(request);
+        RequestHandler.HandleRequest(context);
         
         //break down http request for router paramerter come after '?' hence the string parsing on ?
-        string path = request.RawUrl.LeftOf('?');
-        string parms = request.RawUrl.RightOf('?');
-        string verb = request.HttpMethod;
-        Dictionary<string, string> kvParams = GetKeyValues(parms, null);
+        // string path = request.RawUrl.LeftOf('?');
+        // string parms = request.RawUrl.RightOf('?');
+        // string verb = request.HttpMethod;
+        // Dictionary<string, string> kvParams = GetKeyValues(parms, null);
 
         
-        string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
-        byte[] encoded = Encoding.UTF8.GetBytes(response);
-        context.Response.ContentLength64 = encoded.Length;
-        context.Response.OutputStream.Write(encoded, 0, encoded.Length);
-        context.Response.OutputStream.Close();
+        // string response = "<html><head><meta http-equiv='content-type' content='text/html; charset=utf-8'/> </ head > Hello Browser! </ html > ";
+        // byte[] encoded = Encoding.UTF8.GetBytes(response);
+        // context.Response.ContentLength64 = encoded.Length;
+        // context.Response.OutputStream.Write(encoded, 0, encoded.Length);
+        // context.Response.OutputStream.Close();
     }
 
     private static Dictionary<string, string> GetKeyValues(string data, Dictionary<string, string> kv = null)

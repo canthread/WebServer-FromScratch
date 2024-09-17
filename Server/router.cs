@@ -1,17 +1,12 @@
 using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 
 public class Router{
-    public string WebsitePath { get; private set; }
+    public string _appRoot = Environment.CurrentDirectory; 
 
-    public Router(){
-        WebsitePath = Directory.GetCurrentDirectory();
+    public void RouteRequest(RequestInfo requestInfo){
+        
     }
-
-    private void InitializeRouter(){
-        WebsitePath = Directory.GetCurrentDirectory();
-    }
-
-    Router.HandlerRequest()
 }
 
 
