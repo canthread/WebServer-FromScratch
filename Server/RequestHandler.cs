@@ -17,7 +17,16 @@ public class RequestHandler
         HandleRequest(requestInfo);
     }
 
-    private static bool HandleRequest(RequestInfo requestInfo){
+    private static bool HandleRequest(RequestInfo request){
+        //for now i am assuming i will only receive GET rquests. 
+
+        if(request.Verb == "get"){
+            if(PageLoader.IsValidRequest(request))
+                PageLoader.Respond(); 
+            else{
+                ResponseHandler.SendNotFound();
+            }
+        }
         return true;
     }
 }
