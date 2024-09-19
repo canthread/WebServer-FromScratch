@@ -36,10 +36,10 @@ public static class Server
         listener = new HttpListener();
         // adds the default localhost to the prefixes
         //prefix being the URIs a listener is configures to listen to
-        listener.Prefixes.Add("http://localhost/");
+        listener.Prefixes.Add("http://localhost:9000/");
 
         // adding all the other assositaed ip addresses this host should listen on 
-        iPAddresses.ForEach(ip => listener.Prefixes.Add("http://" + ip.ToString() + "/"));
+        iPAddresses.ForEach(ip => listener.Prefixes.Add("http://" + ip.ToString() + ":9000/"));
         foreach(var prefix in listener.Prefixes){
             Console.WriteLine("Listening on: " + prefix.ToString());
         } 

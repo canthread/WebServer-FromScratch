@@ -1,20 +1,33 @@
 
 using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 public class PageLoader()
 {
-    private string _srcFiles = Path.Combine(Environment.CurrentDirectory, "src") ;
+    private static string _srcFiles = Path.Combine(Environment.CurrentDirectory, "src") ;
+
     internal static bool IsValidRequest(RequestInfo request)
     {
-        throw new NotImplementedException();
+        return File.Exists(request.Path);
+    }
+
+    public static byte [] LoadData(RequestInfo requestInfo){
+       return GetRequestHandler(requestInfo);
+    }
+
+    public static byte [] LoadData(string filePath){
+        return Load(Path.Combine(_srcFiles, filePath));
     }
     
-    private void GetRequestHandler(RequestInfo request){
-        switch (request.ExtentionInfo){
-            case ".html":
-                string filePath = Path.Combine(_srcFiles, "html", request.Path);
-
+    private static byte [] GetRequestHandler(RequestInfo request){
+        switch (request.ExtentionInfo)
+        {
+            case "html":
+                return Load(Path.Combine(_srcFiles, request.Path));
+                break;
+            default:
+                return Load(Path.Combine(_srcFiles, "notfound"));
                 break;
         }
     }
@@ -30,8 +43,11 @@ public class PageLoader()
         throw new NotImplementedException();
     }
 
-    internal static void Respond()
+    internal static byte[] HtmlLoader(string filePath){
+        
+    }
+    internal static byte[] Load(string filePath)
     {
-        throw new NotImplementedException();
+        return File.ReadAllBytes(filePath);
     }
 }
